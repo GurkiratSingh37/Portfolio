@@ -1,0 +1,248 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern Portfolio Design System - Soft, neutral palette with elegant touches */
+
+@layer base {
+  :root {
+    /* Core neutrals - modern and clean */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 8%;
+
+    /* Card system - subtle elevation */
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 8%;
+
+    /* Popover system */
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 8%;
+
+    /* Primary - vibrant blue */
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+    --primary-muted: 221 83% 96%;
+
+    /* Secondary - slate */
+    --secondary: 210 20% 98%;
+    --secondary-foreground: 222 47% 11%;
+
+    /* Muted tones - subtle grays */
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Accent - indigo */
+    --accent: 226 70% 96%;
+    --accent-foreground: 224 76% 48%;
+
+    /* Status colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 76% 47%;
+    --warning: 38 92% 58%;
+
+    /* Borders and inputs */
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 60%;
+
+    /* Design tokens */
+    --radius: 12px;
+
+    /* Portfolio-specific design tokens */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.1));
+    --gradient-card: linear-gradient(180deg, hsl(var(--card)), hsl(var(--muted) / 0.3));
+    --shadow-soft: 0 4px 20px -4px hsl(var(--foreground) / 0.1);
+    --shadow-medium: 0 8px 30px -6px hsl(var(--foreground) / 0.15);
+    --shadow-strong: 0 20px 40px -8px hsl(var(--foreground) / 0.2);
+    
+    /* Animation timings */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Core neutrals - deep dark */
+    --background: 222 47% 6%;
+    --foreground: 210 20% 98%;
+
+    /* Card system - dark theme */
+    --card: 222 47% 7%;
+    --card-foreground: 210 20% 98%;
+
+    /* Popover system - dark theme */
+    --popover: 222 47% 7%;
+    --popover-foreground: 210 20% 98%;
+
+    /* Primary - vibrant blue */
+    --primary: 221 83% 63%;
+    --primary-foreground: 210 20% 98%;
+    --primary-muted: 221 83% 15%;
+
+    /* Secondary - dark slate */
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 210 20% 98%;
+
+    /* Muted - dark theme */
+    --muted: 215 28% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Accent - indigo */
+    --accent: 227 22% 20%;
+    --accent-foreground: 226 100% 87%;
+
+    /* Status colors - dark theme */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 20% 98%;
+    --success: 142 76% 47%;
+    --warning: 38 92% 58%;
+
+    /* Borders and inputs - dark theme */
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
+    --ring: 221 83% 60%;
+
+    /* Design tokens */
+    --radius: 12px;
+
+    /* Dark mode gradients and shadows */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.2), hsl(var(--accent) / 0.1));
+    --gradient-card: linear-gradient(180deg, hsl(var(--card)), hsl(var(--muted) / 0.5));
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 8px 30px -6px hsl(0 0% 0% / 0.4);
+    --shadow-strong: 0 20px 40px -8px hsl(0 0% 0% / 0.5);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-light;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
+  }
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .shadow-glow {
+    --tw-shadow: 0 0 15px 3px rgba(99, 102, 241, 0.7);
+    --tw-shadow-colored: 0 0 15px 3px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+}
+
+@layer components {
+  /* Gradient overlays */
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  /* Shadow utilities */
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-strong {
+    box-shadow: var(--shadow-strong);
+  }
+
+  /* Smooth transitions */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-spring {
+    transition: var(--transition-spring);
+  }
+
+  /* Hover effects */
+  .hover-lift {
+    @apply transition-smooth hover:translate-y-[-2px] hover:shadow-medium;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-glow hover:shadow-primary/20;
+    will-change: transform, box-shadow;
+  }
+
+  /* Card hover effect */
+  .hover-card {
+    @apply transition-all duration-500 hover:scale-[1.02] hover:shadow-xl;
+    will-change: transform, box-shadow;
+  }
+
+  /* Subtle pulse animation */
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  /* Scroll reveal animation */
+  .animate-reveal {
+    animation: reveal 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  @keyframes reveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Text gradient utility */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-primary/60;
+    background-size: 200% auto;
+    animation: gradient 6s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+}
